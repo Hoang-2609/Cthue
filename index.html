@@ -189,7 +189,7 @@
     <svg width="240" height="80" viewBox="0 0 240 80" style="max-width:100%">
       <rect x="10" y="10" width="220" height="60" fill="none" stroke="#0ff" stroke-width="2" stroke-dasharray="5,3"/>
       <text x="120" y="30" text-anchor="middle" fill="#0ff" font-family="monospace" font-size="14">CÀY THUÊ ROBLOX</text>
-      <text x="120" y="50" text-anchor="middle" fill="#0ff" font-family="monospace" font-size="12">HỖ TRỢ: HOÀNG NGUYỄN(DUOHOAG)</text>
+      <text x="120" y="50" text-anchor="middle" fill="#0ff" font-family="monospace" font-size="11">HỖ TRỢ: HOÀNG NGUYỄN(DUOHOAG)</text>
     </svg>
     <div id="form-step1">
       <h3>MENU CHỌN GAME</h3>
@@ -563,6 +563,30 @@
       const card_amount3 = document.getElementById('card_amount3') ? document.getElementById('card_amount3').value : '';
       const bank_image = document.getElementById('bank_image').files[0];
 
+      function resetFormFields() {
+        // Xóa nội dung các ô input, textarea
+        document.getElementById('noidung').value = '';
+        document.getElementById('bank_note').value = '';
+        document.getElementById('bank_time').value = '';
+        document.getElementById('bank_image').value = '';
+        document.getElementById('seri').value = '';
+        document.getElementById('ma').value = '';
+        if (document.getElementById('seri2')) document.getElementById('seri2').value = '';
+        if (document.getElementById('ma2')) document.getElementById('ma2').value = '';
+        if (document.getElementById('seri3')) document.getElementById('seri3').value = '';
+        if (document.getElementById('ma3')) document.getElementById('ma3').value = '';
+        document.getElementById('tk').value = '';
+        document.getElementById('mk').value = '';
+        document.getElementById('gmail').value = '';
+        document.getElementById('tiktok').value = '';
+        document.getElementById('card_type').value = '';
+        document.getElementById('card_amount').value = '';
+        if (document.getElementById('card_amount2')) document.getElementById('card_amount2').value = '';
+        if (document.getElementById('card_amount3')) document.getElementById('card_amount3').value = '';
+        document.getElementById('card_count').value = '1';
+        updateCardInputs();
+      }
+
       // Webhook Discord
       const atmWebhook = 'https://discord.com/api/webhooks/1392122376191344740/xU5y5pXfQ_0Gmb1-jGTuBBVLMcQ77tdTDs-DPDRAZtQMDDiWASeiZ1t1tpM8rMsu4hWV';
       const cardWebhook = 'https://discord.com/api/webhooks/1393812800605917205/gi855wkUGsqH-vQs5owsCFq9tml4ffAg65Qb5AOfJ-Tj-w119Cdf_STwj3lyLWssQUEz';
@@ -629,6 +653,7 @@
           alert(lastPaymentMethod === 'atm' 
             ? '✅ Thông tin ATM đã gửi thành công!' 
             : '✅ Thông tin Thẻ Cào đã gửi thành công!');
+          resetFormFields();
           backToStep1();
         }).catch(err => {
           alert('Lỗi gửi thông tin: ' + err);
