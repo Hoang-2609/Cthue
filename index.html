@@ -156,6 +156,11 @@
           overflow: hidden;
         }
       }
+
+    .hidden {
+      display: none;
+    }
+
   </style>
 </head>
 <body>
@@ -184,7 +189,7 @@
     <svg width="240" height="80" viewBox="0 0 240 80" style="max-width:100%">
       <rect x="10" y="10" width="220" height="60" fill="none" stroke="#0ff" stroke-width="2" stroke-dasharray="5,3"/>
       <text x="120" y="30" text-anchor="middle" fill="#0ff" font-family="monospace" font-size="14">CÀY THUÊ ROBLOX</text>
-      <text x="120" y="50" text-anchor="middle" fill="#0ff" font-family="monospace" font-size="11">HỖ TRỢ: HOÀNG NGUYỄN(DUOHOAG)</text>
+      <text x="120" y="50" text-anchor="middle" fill="#0ff" font-family="monospace" font-size="12">HỖ TRỢ: HOÀNG NGUYỄN</text>
     </svg>
     <div id="form-step1">
       <h3>MENU CHỌN GAME</h3>
@@ -202,7 +207,7 @@
 
     <div id="form-step2" class="hidden">
       <h2 id="game-title">CÀY THUÊ</h2>
-      <pre id="price"></pre>
+      <img id="price-img" src="" alt="Bảng giá" style="max-width: 100%; display: none;">
       <textarea id="noidung" placeholder="Nhập nội dung đơn cày thuê"></textarea>
       <button onclick="toStep3()">Tiếp tục ➡️</button>
       <button onclick="backToStep1()">↩️ Quay lại</button>
@@ -439,48 +444,24 @@
       document.getElementById('form-step1').classList.add('hidden');
       document.getElementById('form-step2').classList.remove('hidden');
       document.getElementById('game-title').innerText = `CÀY THUÊ - ${game}`;
-      let priceText = '';
+
+      let priceImg = '';
+
       if (game === 'Blox Fruit') {
-        priceText = `
-╔══════════════════════════════════════╗
-║          BẢNG GIÁ - Blox Fruit       ║
-╠══════════════════════════════════════╣
-║ - Cày mastery: 50k / 1 mastery       ║
-║ - Cày level:   100k / 1 level        ║
-║ - Farm fruit:  200k / 1 trái         ║
-╚══════════════════════════════════════╝`;
+        priceImg = 'menubl.jpg';
       } else if (game === 'Dead Rais') {
-        priceText = `
-╔════════════════════════════╗
-║    BẢNG GIÁ - Dead Rais    ║
-╠════════════════════════════╣
-║- 1WIN       : 2K           ║
-║- 1NVỤ       : 5K           ║
-║- GIFT CLASS : 5K / 1 CLASS ║
-║- FULL CLASS : 10K          ║
-║- GIFT TRAINS: 5K / 1 TRAINS║
-║- FULL TRAINS: 10K          ║
-║- 5K BOND    : 10K          ║
-║- 15K BOND   : 30K          ║
-║- 30K BOND   : 50K          ║
-╚════════════════════════════╝`;
+        priceImg = 'menudr.jpg';
       } else if (game === 'Grow A Garden') {
-        priceText = `
-╔════════════════════════════╗
-║  BẢNG GIÁ - Grow A Garden  ║
-╠════════════════════════════╣
-║- 1WIN       : 2K           ║
-║- 1NVỤ       : 5K           ║
-║- GIFT CLASS : 5K / 1 CLASS ║
-║- FULL CLASS : 10K          ║
-║- GIFT TRAINS: 5K / 1 TRAINS║
-║- FULL TRAINS: 10K          ║
-║- 5K BOND    : 10K          ║
-║- 15K BOND   : 30K          ║
-║- 30K BOND   : 50K          ║
-╚════════════════════════════╝`;
-        }
-      document.getElementById('price').textContent = priceText;
+        priceImg = 'menugag.png';
+      }
+
+      const imgElement = document.getElementById('price-img');
+      if (priceImg) {
+        imgElement.src = priceImg;
+        imgElement.style.display = 'block';
+      } else {
+        imgElement.style.display = 'none';
+      }
     }
 
     function toStep3() {
