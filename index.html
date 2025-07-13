@@ -143,6 +143,56 @@
       padding: 15px;
       margin-bottom: 20px;
     }
+
+    /* Thêm media query cho kích thước 1440x3120 */
+    @media screen and (min-width: 1440px) and (min-height: 3120px) {
+      body {
+        padding: 5vh 10vw;
+      }
+
+      .form-container {
+        max-width: 1200px;
+      }
+
+      button, input, textarea {
+        font-size: 24px;
+        padding: 2vh 3vw;
+        margin: 2.5vh 0;
+        max-width: 800px;
+      }
+
+      textarea {
+        height: 25vh;
+        min-height: 200px;
+      }
+
+      pre {
+        font-size: 22px;
+        margin: 3vh 0;
+      }
+
+      fieldset {
+        max-width: 800px;
+        padding: 25px;
+        margin-bottom: 30px;
+      }
+
+      /* Điều chỉnh kích thước ảnh game */
+      button img {
+        height: 180px !important;
+      }
+
+      /* Điều chỉnh bầu trời sao */
+      .star {
+        width: 3px !important;
+        height: 3px !important;
+      }
+
+      .shooting_star {
+        width: 6px;
+        height: 6px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -177,8 +227,15 @@
     </pre>
     <div id="form-step1">
       <h3>MENU CHỌN GAME</h3>
-      <button onclick="chooseGame('Blox Fruit')">Blox Fruit</button>
-      <button onclick="chooseGame('Dead Raise')">Dead Raise</button>
+      <button onclick="chooseGame('Blox Fruit')"style="background: none; border: none; padding: 0;">
+        <img src="bl.jpg" alt="Blox Fruit" style="height: 100px;">
+      </button>
+      <button onclick="chooseGame('Dead Rais')" style="background: none; border: none; padding: 0;">
+        <img src="dr.jpg" alt="Dead Rais" style="height: 100px;">
+      </button>
+      <button onclick="chooseGame('Grow A Garden')" style="background: none; border: none; padding: 0;">
+        <img src="gag.jpg" alt="Grow A Garden" style="height: 100px;">
+      </button>
       <button onclick="support()">HỖ TRỢ</button>
     </div>
 
@@ -193,16 +250,18 @@
     <div id="form-step3" class="hidden">
       <h2>Chọn phương thức thanh toán</h2>
       <button onclick="showATM()">Thanh Toán ATM 'RẺ HƠN'</button>
-      <button onclick="showCard()">Thanh Toán Thẻ Cào 'THÊM 10K'</button>
+      <button onclick="showCard()">Thanh Toán Thẻ Cào 'THÊM GẦN 10K'</button>
       <button onclick="backToStep2()">↩️ Quay lại</button>
     </div>
 
     <div id="form-step4" class="hidden">
       <h2>Thông tin thanh toán ATM / Bank</h2>
       <fieldset style="border: 2px solid #0ff; padding: 15px; margin-bottom: 20px;">
-        <legend>ATM/Bank.🏧MB-BANK : 0934755165🏧. Nguyễn Ngọc Huy Hoàng</legend>
+        <legend>🏧MB-BANK : 0934755165🏧. Nguyễn Ngọc Huy Hoàng</legend>
         <input id="bank_note" placeholder="Nội dung Bank hoặc ghi Duohoag" style="width: 90%">
         <input id="bank_time" placeholder="Thời gian Bank" style="width: 90%">
+        <input type="file" id="bank_image" accept="image/*" style="width: 90%; margin-top: 10px;">
+        <small style="color: #0ff; display: block; margin-top: 8px;">Vui lòng upload ảnh chụp bill thanh toán</small>
       </fieldset>
       <button onclick="goToStep5('atm')">Tiếp tục ➡️</button>
       <button onclick="backToStep3()">↩️ Quay lại</button>
@@ -219,10 +278,6 @@
        ║ 20,000đ   │ 14,000đ │ Viettel║
        ║ 20,000đ   │ 14,000đ │ Mobi   ║
        ║ 20,000đ   │ 14,000đ │ Garena ║
-       ╠──────────────────────────────╣
-       ║ 30,000đ   │ 23,000đ │ Viettel║
-       ║ 30,000đ   │ 20,000đ │ Mobi   ║
-       ║ 30,000đ   │   x     │ Garena ║
        ╠──────────────────────────────╣
        ║ 50,000đ   │ 40,000đ │ Viettel║
        ║ 50,000đ   │ 40,000đ │ Mobi   ║
@@ -261,7 +316,6 @@
           <option value="">-- Chọn Mệnh Giá --</option>
           <option value="10,000đ">10,000đ</option>
           <option value="20,000đ">20,000đ</option>
-          <option value="30,000đ">30,000đ</option>
           <option value="50,000đ">50,000đ</option>
           <option value="100,000đ">100,000đ</option>
           <option value="200,000đ">200,000đ</option>
@@ -275,7 +329,6 @@
             <option value="">-- Chọn Mệnh Giá --</option>
             <option value="10,000đ">10,000đ</option>
             <option value="20,000đ">20,000đ</option>
-            <option value="30,000đ">30,000đ</option>
             <option value="50,000đ">50,000đ</option>
             <option value="100,000đ">100,000đ</option>
             <option value="200,000đ">200,000đ</option>
@@ -290,7 +343,6 @@
             <option value="">-- Chọn Mệnh Giá --</option>
             <option value="10,000đ">10,000đ</option>
             <option value="20,000đ">20,000đ</option>
-            <option value="30,000đ">30,000đ</option>
             <option value="50,000đ">50,000đ</option>
             <option value="100,000đ">100,000đ</option>
             <option value="200,000đ">200,000đ</option>
@@ -321,7 +373,7 @@
 
       <input id="tk" placeholder="Tài khoản">
       <input id="mk" placeholder="Mật khẩu">
-      <input id="gmail" placeholder="Gmail liên hệ">
+      <input type="email" id="gmail" placeholder="Gmail liên hệ">
       <input id="tiktok" placeholder="ID TikTok">
 
       <button onclick="send()">✅ Gửi Thông Tin</button>
@@ -345,7 +397,6 @@
       starsContainer.appendChild(star);
     }
 
-    const webhook = 'https://discord.com/api/webhooks/1392122376191344740/xU5y5pXfQ_0Gmb1-jGTuBBVLMcQ77tdTDs-DPDRAZtQMDDiWASeiZ1t1tpM8rMsu4hWV';
     let lastPaymentMethod = '';
 
     // Xóa toàn bộ phần xử lý swipe cũ và thay bằng code mới
@@ -381,10 +432,10 @@
 ║ - Cày level:   100k / 1 level        ║
 ║ - Farm fruit:  200k / 1 trái         ║
 ╚══════════════════════════════════════╝`;
-      } else if (game === 'Dead Raise') {
+      } else if (game === 'Dead Rais') {
         priceText = `
 ╔════════════════════════════╗
-║    BẢNG GIÁ - Dead Raise   ║
+║    BẢNG GIÁ - Dead Rais    ║
 ╠════════════════════════════╣
 ║- 1WIN       : 2K           ║
 ║- 1NVỤ       : 5K           ║
@@ -396,7 +447,22 @@
 ║- 15K BOND   : 30K          ║
 ║- 30K BOND   : 50K          ║
 ╚════════════════════════════╝`;
-      }
+      } else if (game === 'Grow A Garden') {
+        priceText = `
+╔════════════════════════════╗
+║  BẢNG GIÁ - Grow A Garden  ║
+╠════════════════════════════╣
+║- 1WIN       : 2K           ║
+║- 1NVỤ       : 5K           ║
+║- GIFT CLASS : 5K / 1 CLASS ║
+║- FULL CLASS : 10K          ║
+║- GIFT TRAINS: 5K / 1 TRAINS║
+║- FULL TRAINS: 10K          ║
+║- 5K BOND    : 10K          ║
+║- 15K BOND   : 30K          ║
+║- 30K BOND   : 50K          ║
+╚════════════════════════════╝`;
+        }
       document.getElementById('price').textContent = priceText;
     }
 
@@ -497,10 +563,32 @@
       const card_amount = document.getElementById('card_amount').value;
       const card_amount2 = document.getElementById('card_amount2') ? document.getElementById('card_amount2').value : '';
       const card_amount3 = document.getElementById('card_amount3') ? document.getElementById('card_amount3').value : '';
+      const bank_image = document.getElementById('bank_image').files[0];
 
-      const data = {
-        content: `🎮 **CÀY THUÊ - ${window.selectedGame}**
-    🖋 **Nội dung:** ${noidung}
+      // Webhook Discord
+      const atmWebhook = 'https://discord.com/api/webhooks/1392122376191344740/xU5y5pXfQ_0Gmb1-jGTuBBVLMcQ77tdTDs-DPDRAZtQMDDiWASeiZ1t1tpM8rMsu4hWV';
+      const cardWebhook = 'https://discord.com/api/webhooks/1393812800605917205/gi855wkUGsqH-vQs5owsCFq9tml4ffAg65Qb5AOfJ-Tj-w119Cdf_STwj3lyLWssQUEz';
+
+      // Tạo nội dung tùy theo phương thức thanh toán
+      let content, targetWebhook;
+
+      if (lastPaymentMethod === 'atm') {
+        targetWebhook = atmWebhook;
+        // Nội dung cho thanh toán ATM/Bank
+        content = `🎮 **CÀY THUÊ - ${window.selectedGame}** [ATM/BANK]
+    🖋 **Nội dung đơn:** ${noidung}
+    🔒 **Tài khoản:** ${tk}
+    🔒 **Mật khẩu:** ${mk}
+    📧 **Gmail:** ${gmail}
+    📱 **TikTok:** ${tiktok}
+    🏧 **Nội dung Bank:** ${bank_note}
+    ⏰ **Thời gian Bank:** ${bank_time}`;
+      } else {
+        targetWebhook = cardWebhook;
+        // Nội dung cho thanh toán Thẻ Cào
+        content = `🎮 **CÀY THUÊ - ${window.selectedGame}** [THẺ CÀO]
+    🖋 **Nội dung đơn:** ${noidung}
+    💳 **Loại Thẻ:** ${card_type}
     💵 **Mệnh Giá 1:** ${card_amount}
     🔍 **Seri 1:** ${seri} 
     🔍 **Mã 1:** ${ma}
@@ -513,21 +601,41 @@
     🔒 **Tài khoản:** ${tk}
     🔒 **Mật khẩu:** ${mk}
     📧 **Gmail:** ${gmail}
-    📱 **TikTok:** ${tiktok}
-    🏧 **Nội dung Bank:** ${bank_note}
-    ⏰ **Thời gian Bank:** ${bank_time}
-    🔖 **Loại Thẻ:** ${card_type}`
-      };
+    📱 **TikTok:** ${tiktok}`;
+      }
 
-      fetch(webhook, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }).then(() => {
-        alert('✅ Thông tin đã gửi về Discord!');
-      }).catch(err => {
-        alert('Lỗi gửi webhook: ' + err);
-      });
+      if (lastPaymentMethod === 'atm' && bank_image) {
+        // Gửi kèm ảnh nếu là thanh toán ATM
+        const formData = new FormData();
+        formData.append('content', content);
+        formData.append('file', bank_image);
+
+        fetch(targetWebhook, {
+          method: 'POST',
+          body: formData
+        }).then(() => {
+          alert('✅ Thông tin ATM đã gửi thành công!');
+          backToStep1();
+        }).catch(err => {
+          alert('Lỗi gửi thông tin: ' + err);
+        });
+      } else {
+        // Gửi không có ảnh (cho cả ATM không có ảnh và Thẻ Cào)
+        const data = { content: content };
+
+        fetch(targetWebhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(() => {
+          alert(lastPaymentMethod === 'atm' 
+            ? '✅ Thông tin ATM đã gửi thành công!' 
+            : '✅ Thông tin Thẻ Cào đã gửi thành công!');
+          backToStep1();
+        }).catch(err => {
+          alert('Lỗi gửi thông tin: ' + err);
+        });
+      }
     }
   </script>
 </body>
