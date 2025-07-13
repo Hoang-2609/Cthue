@@ -144,55 +144,18 @@
       margin-bottom: 20px;
     }
 
-    /* Thêm media query cho kích thước 1440x3120 */
-    @media screen and (min-width: 1440px) and (min-height: 3120px) {
-      body {
-        padding: 5vh 10vw;
-      }
-
-      .form-container {
-        max-width: 1200px;
-      }
-
-      button, input, textarea {
-        font-size: 24px;
-        padding: 2vh 3vw;
-        margin: 2.5vh 0;
-        max-width: 800px;
-      }
-
-      textarea {
-        height: 25vh;
-        min-height: 200px;
-      }
-
-      pre {
-        font-size: 22px;
-        margin: 3vh 0;
-      }
-
-      fieldset {
-        max-width: 800px;
-        padding: 25px;
-        margin-bottom: 30px;
-      }
-
-      /* Điều chỉnh kích thước ảnh game */
-      button img {
-        height: 180px !important;
-      }
-
-      /* Điều chỉnh bầu trời sao */
-      .star {
-        width: 3px !important;
-        height: 3px !important;
-      }
-
-      .shooting_star {
-        width: 6px;
-        height: 6px;
-      }
+    <meta name="viewport" content="width=1440, height=3120, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+  /* Scale to fit 1440x3120 */
+  @media screen and (max-width: 1440px) {
+    body {
+      transform: scale(calc(100vw / 1440));
+      transform-origin: top left;
+      width: 1440px;
+      height: 3120px;
+      overflow: hidden;
     }
+  }
   </style>
 </head>
 <body>
