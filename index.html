@@ -208,7 +208,7 @@
     <div id="form-step2" class="hidden">
       <h2 id="game-title">CÀY THUÊ</h2>
       <img id="price-img" src="" alt="Bảng giá" style="max-width: 100%; display: none;">
-      <textarea id="noidung" placeholder="Nhập nội dung đơn cày thuê"></textarea>
+      <textarea id="noidung" placeholder="Nhập nội dung đơn.'NHẬP THEO MENU CHO DỄ BIẾT - MUỐN ĐƠN GÌ MENU GHI GIỐNG MENU - OK'"></textarea>
       <button onclick="toStep3()">Tiếp tục ➡️</button>
       <button onclick="backToStep1()">↩️ Quay lại</button>
     </div>
@@ -468,7 +468,7 @@
     function toStep3() {
       const noidung = document.getElementById('noidung').value.trim();
       if (!noidung) {
-        alert('Vui lòng nhập nội dung cày thuê. "NHẬP THEO MENU CÀY GÌ GHI RA CHO DỄ BIẾT - OK" !');
+        alert('Vui lòng nhập nội dung cày thuê!');
         return;
       }
       document.getElementById('form-step2').classList.add('hidden');
